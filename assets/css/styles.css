@@ -18,11 +18,14 @@
   --h1-font-size: 1.5rem;  /* ~ Font Size 24px */
   --h2-font-size: 1.25rem; /* ~ Font Size 20px */
   --h3-font-size: 1rem;    /* ~ Font Size 16px */
+  
   /*--normal-font-size: 0.938rem; /* ~ Font Size 15.01px */
   --normal-font-size: 0.90rem; /* ~ Font Size 14.4px */
   /*--normal-font-size: 0.89rem; /* ~ Font Size 14.24px */
+  
   /*--small-font-size: 0.875rem; /* ~ Font Size 14px */
   --small-font-size: 0.86rem; /* ~ Font Size 13.76px */
+  
   --smaller-font-size: 0.813rem; /* ~ Font Size ??? */
 
   /*========== Font weight ==========*/
@@ -152,13 +155,6 @@ body.scale-cv {
 .scale-cv .certificate__container {
   gap: 1rem;
 }
-.Honours__container {
-  display: block;
-  /* gap: 0.5rem; /* Added */
-}
-.Honours__content {
-  display: block;
-}
 .scale-cv .education__time,
 .scale-cv .experience__time {
   padding-right: 0.5rem;
@@ -190,6 +186,7 @@ body.scale-cv {
 .scale-cv .interests__container {
   column-gap: 2.5rem;
 }
+/* End CV Scaling */
 
 body {
   margin: 0 0 var(--header-height) 0;
@@ -489,7 +486,7 @@ img {
   font-size: 0.7rem;
 }
 
-.btn {
+.btn1 {
   display: inline-block;
   background-color: transparent;
   border: 1px solid transparent;
@@ -501,7 +498,7 @@ img {
   color: var(--text-color);;
 }
 
-.btn:hover {
+.btn1:hover {
   background-color: var(--text-color);
   color: var(--container-color);
 }
@@ -566,6 +563,10 @@ rgb(130, 133, 136) .education__year {
 .certificate__data {
   gap: 0.15rem; /* Changed from 0.5rem */
   margin-bottom: 0.9rem;
+}
+.certification__container {
+  display: block;
+  /* gap: 0.5rem; /* Added */
 }
 
 /*========== Projects ==========*/

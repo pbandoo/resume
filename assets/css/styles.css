@@ -246,6 +246,13 @@ img {
   margin-bottom: var(--mb-3);
 }
 
+
+/* Added to split content vertically */
+.container-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 /*========== LAYOUT ==========*/
 .bd-container {
   max-width: 968px;
@@ -256,7 +263,13 @@ img {
 
 .bd-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 0.7rem; /* Changed from 1.5rem */
+}
+
+.thick-grid {
+  display: grid;
+  border: 2px solid black;
+  grid-gap: 50px;
 }
 
 .l-header {
@@ -460,7 +473,7 @@ img {
 .experience__line {
   display: block;
   width: 2px;
-  height: 110%;
+  height: 100%; /* Changed from 110% */
   background-color: var(--text-color-light);
   transform: translate(7px, 0);
 }

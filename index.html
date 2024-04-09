@@ -79,8 +79,8 @@
                 <h3 class="home__profession">Senior Lead, Cyber Threat Emulator<p>(Red Team)</p></h3>
                 
                 <div>
-                  <!-- Add a link to download a pre-existing resume PDF (used on Mobile devices) -->
-                  <a download="" href="assets/pdf/McCann_Resume_20240401.pdf" class="home__button-movil">Download Resume</a>
+                  <!-- Mobile Only: Add a link to download a pre-existing resume PDF -->
+                  <a download="" href="assets/pdf/McCann_Resume_20240409.pdf" class="home__button-movil">Download Resume</a>
                 </div>
 
               </div>
@@ -104,13 +104,13 @@
 
             </div>
             
-            <!-- Button to Generate and Download Resume PDF (desktop only) -->
-            <!-- Removed until PDF functionality is refined.
+            <!-- Desktop Only: Button to Dynamically Generate and Download Resume PDF -->
+            
+            <!-- Removed until PDF functionality (html2pdf) is refined.
               <i class="bx bx-download generate-pdf" title="Generate PDF" id="resume-button"></i>
             -->
-            
             <!-- Hardcoded a download to a manually created PDF -->
-            <a download="" href="assets/pdf/McCann_Resume_20231219.pdf">
+            <a download="" href="assets/pdf/McCann_Resume_20240409.pdf">
               <i class="bx bx-download generate-pdf" title="Generate PDF" id="fake-news"></i>
             </a>
 
@@ -139,7 +139,7 @@
             <h2 class="section-title">Achievements</h2>
             <div class="education__container bd-grid">
               
-              <!-- Education Bullet -->
+              <!-- Achievement Bullet -->
               <div class="education__content">
                 
                 <!-- __rounder = Experience Bullet | __line = Line to next Bullet -->
@@ -224,7 +224,7 @@
           <!--========== SKILLS  ==========-->
           <section class="skills section" id="skills">
             <!-- Hardcoded line breaks for temporary new page support -->
-            <h2 class="section-title"></br></br></br></br></br>Skills</h2>
+            <h2 class="section-title"></br></br></br></br></br></br></br></br>Skills</h2>
         
             <div class="skills__content bd-grid">
                         
@@ -284,7 +284,32 @@
         
           <!--========== EXPERIENCE ==========-->
           <section class="experience section" id="experience">
-            <h2 class="experience section-title" id="experience">Experience</h2>
+            
+            <!-- Split the Education Header with a Fancy Button -->
+            <div class="container-header">
+
+              <h2 class="experience section-title" id="experience">Experience</h2>
+              <div class='experience__content'>
+                
+                <!-- Indent the Button -->
+                <!-- <div class="experience__time"></div> -->
+
+                <div>
+                  <button type="button" class="btn1 btn-outline-primary btn-rounded waves-effect">
+                    <b>Active Clearance:</b> TS-SCI w/ Polygraph</br>
+                    <b>DoD Directive 8570 Compliance:</b> IAT-III
+                  </button>
+                </div>
+
+                <!-- Will add once I get a stupid CEH voucher
+                  DoD Directive 8570 Compliance: 
+                  IAT-III, CSSP Analyst, CSSP Intrastructure Support, CSSP Incidient Responder, CSSP Auditor
+                -->
+
+              </div>
+            </div>
+            <!-- End Header -->
+            
             <div class="experience__container bd-grid">
               
               <!-- Experience Bullet -->
@@ -297,16 +322,101 @@
                 </div>
                 
                 <div class="experience__data bd-grid">
-                  <h3 class="experience__title">Cyber Operations Specialist (17C)</h3>
+                  <h2 class="experience__title"></br><b>DoD SkillBridge Internship</b></h2>
                   <span class="experience__company">
-                      SSG, U.S. Army | Active Clearance: <b>TS-SCI w/ Polygraph</b></br>
-                      DoD Directive 8570 Compliance: <b>IAT-III</b>
+                    SkillBridge Intern | <b>SIXGEN</b>
                   </span>
                   
-                  <!-- Will add once I get a stupid CEH voucher
+                  <span class="experience__duration">March 2024 - June 2024</span>
+                  
+                  <!--
+                  <p class="experience__description">
+                      <b>Duties:</b> Do some cool shit!!!
+                  </p>
+                  -->
+                  
+                  <!-- Pretty Buttons (btn1 = Light Button | btn2 = Dark Button -->
+                  <div>
+                    <button type="button" class="btn2 btn-outline-primary btn-rounded waves-effect"><b>Exploit Developer</b></button>
+                    <button type="button" class="btn2 btn-outline-primary btn-rounded waves-effect"><b>Network Architect</b></button>
+                  </div>
+                </div>
+              </div>
+              <!-- End Bullet -->
+              
+              <!-- Experience Bullet -->
+              <div class="experience__content">
+                
+                <!-- __rounder = Experience Bullet | __line = Line to next Bullet -->
+                <div class="experience__time">
+                  <span class="experience__rounder"></span>
+                  <span class="experience__line"></span>
+                </div>
+                
+                <div class="experience__data bd-grid">
+                  <h3 class="experience__title">Exploit Developer</h3>
+                  <span class="experience__company">SIXGEN</span>
+                  
+                  <!-- <span class="experience__duration">[Redacted]</span> -->
+                  
+                  <p class="experience__description">
+                      Focused on gaining proficiency in Windows User Level exploits for Intel x86 architectures and 
+                      exploit crafting techniques to develop effective payloads for security research purposes.
+                  </p>
+                  
+                  <!-- Pretty Buttons (btn1 = Light Button | btn2 = Dark Button -->
+                  <div>
+                    <button type="button" class="btn1 btn-outline-primary btn-rounded waves-effect">Intel x86</button>
+                    <button type="button" class="btn1 btn-outline-primary btn-rounded waves-effect">Assembly</button>
+                    <button type="button" class="btn1 btn-outline-primary btn-rounded waves-effect">Reverse Engineering</button>
+                  </div>
+                </div>
+              </div>
+              <!-- End Bullet -->
+              
+              <!-- Experience Bullet -->
+              <div class="experience__content">
+              
+                <!-- __rounder = Experience Bullet | __line = Line to next Bullet -->
+                <div class="experience__time">
+                  <span class="experience__rounder"></span>
+                  <!-- <span class="experience__line"></span> -->
+                </div>
+                
+                <div class="experience__data bd-grid">
+                  <h3 class="experience__title">Network Architect</h3>
+                  <span class="experience__company">SIXGEN</span>
+                  
+                  <!-- <span class="experience__duration">[Redacted]</span> -->
+                  
+                  <p class="experience__description">
+                      Focused on developing & building both scaleable and maintainable
+                      virtualized Active Directory environments for operator training purposes. 
+                  </p>
+                  
+                  <!-- Pretty Buttons (btn1 = Light Button | btn2 = Dark Button -->
+                  <div>
+                    <button type="button" class="btn1 btn-outline-primary btn-rounded waves-effect">Proxmox</button>
+                    <button type="button" class="btn1 btn-outline-primary btn-rounded waves-effect">DevOps</button>
+                    <button type="button" class="btn1 btn-outline-primary btn-rounded waves-effect">Active Directory</button>
+                  </div>
+                </div>
+              </div>
+              <!-- End Bullet -->
+              <!-- Experience Bullet -->
+              <div class="experience__content">
+              
+                <!-- __rounder = Experience Bullet | __line = Line to next Bullet -->
+                <div class="experience__time">
+                  <!-- <span class="experience__rounder"></span -->
+                  <!-- <span class="experience__line"></span> -->
+                </div>
+                
+                <div class="experience__data bd-grid">
+                  <h2 class="experience__title"></br></br><b>Cyber Operations Specialist (17C)</b></h2>
                   <span class="experience__company">
-                      DoD Directive 8570 Compliance: <b>IAT-III, CSSP Analyst, CSSP Intrastructure Support, CSSP Incidient Responder, CSSP Auditor</b>
-                  </span>-->
+                    Staff Sergeant (SSG) | <b>U.S. Army</b>
+                  </span>
                   
                   <span class="experience__duration">August 2018 - September 2024</span>
                   
@@ -342,8 +452,9 @@
                   <!-- <span class="experience__duration">[Redacted]</span> -->
                   
                   <p class="experience__description">
-                      Senior lead in my unit's Cyber Threat Emulation (CTE) cell, where we primarily focus on Red Teaming and emulating
-                      Advanced Persistent Threats (APTs) to train the analysts within the brigade's Cyber Protection Teams (CPTs).
+                      Senior lead in my unit's Cyber Threat Emulation (CTE) cell, primarily focusing on devloping defensive analysts within the 
+                      brigade's Cyber Protection Teams (CPTs) via Red & Purple Teaming exercises while emulating Advanced Persistence Threats (APTs),
+                      as well as generating data analytics by recreating, deploying, and performing CVE's and TTP's on critical infrastructure.
                   </p>
                   
                   <!-- Pretty Buttons (btn1 = Light Button | btn2 = Dark Button -->
@@ -533,11 +644,11 @@
                 
                 <div class="certificate__data bd-grid">
                   <!-- Link to Credential -->
-                  <a href="https://www.credly.com/badges/b123c5ae-176b-48cc-99ab-a3674247b3a8">
+                  <a href="https://www.credly.com/earner/earned/badge/50d1e914-38c0-4a89-b58b-75b2d80c6d06">
                   <!-- Certification -->
-                  <h3 class="experience__title"><b>○</b> GIAC Certified Enterprise Defender (GCED)</h3>
+                  <h3 class="experience__title"><b>○</b> Red Team Apprentice Certified (RTAC)</h3>
                   <!-- Date Acquired -->
-                  <span class="experience__duration">August 2020 | SANS Institute</span>
+                  <span class="experience__duration">March 2024 | k>fivefour</span>
                   </a>
                 </div>
                 
@@ -552,25 +663,26 @@
                 
                 <div class="certificate__data bd-grid">
                   <!-- Link to Credential -->
-                  <a href="https://www.credly.com/earner/earned/badge/50d1e914-38c0-4a89-b58b-75b2d80c6d06">
+                  <a href="https://www.credly.com/badges/b123c5ae-176b-48cc-99ab-a3674247b3a8">
                   <!-- Certification -->
-                  <h3 class="experience__title"><b>○</b> Red Team Apprentice Certified (RTAC)</h3>
+                  <h3 class="experience__title"><b>○</b> GIAC Certified Enterprise Defender (GCED)</h3>
                   <!-- Date Acquired -->
-                  <span class="experience__duration">August 2020 | k>fivefour</span>
+                  <span class="experience__duration">August 2020 | SANS Institute</span>
                   </a>
                 </div>
                 
               </div>
               <!-- End Bullet -->
-
+              
             </div>
           </section>
 
 
           <!--========== Projects ==========-->
           <section class="experience section" id="projects">
-            <h2 class="experience section-title" id="projects"></br></br></br>Projects</h2>
+            <h2 class="experience section-title" id="projects">Projects</h2>
             
+
             <!-- Project Bullet -->
             <div class="experience__container bd-grid">
               <div class="experience__content">
@@ -640,6 +752,7 @@
               </div>
             </div>
             <!-- End Bullet -->
+
             <!-- Project Bullet -->
             <div class="experience__container bd-grid">
               <div class="experience__content">
@@ -653,7 +766,7 @@
 
                 <div class="experience__data bd-grid">
                   <!-- Project Name -->
-                  <h3 class="experience__title"></br>SigmaPotato</h3>
+                  <h3 class="experience__title">SigmaPotato</h3>
                   <!-- Project Link -->
                   <span class="experience__duration"><a href="https://github.com/tylerdotrar/SigmaPotato">https://github.com/tylerdotrar/SigmaPotato</a></span>
                   <!-- Project Description -->
@@ -687,7 +800,7 @@
 
                 <div class="experience__data bd-grid">
                   <!-- Project Name -->
-                  <h3 class="experience__title"></br>PoorMansArmory</h3>
+                  <h3 class="experience__title">PoorMansArmory</h3>
                   <!-- Project Link -->
                   <span class="experience__duration"><a href="https://github.com/tylerdotrar/PoorMansArmory">https://github.com/tylerdotrar/PoorMansArmory</a></span>
                   <!-- Project Description -->
@@ -726,7 +839,7 @@
 
                 <div class="experience__data bd-grid">
                   <!-- Project Name -->
-                  <h3 class="experience__title"></br>ProxmoxMaster</h3>
+                  <h3 class="experience__title">ProxmoxMaster</h3>
                   <!-- Project Link -->
                   <span class="experience__duration"><a href="https://github.com/tylerdotrar/ProxmoxMaster">https://github.com/tylerdotrar/ProxmoxMaster</a></span>
                   <!-- Project Description -->
@@ -762,7 +875,7 @@
 
                 <div class="experience__data bd-grid">
                   <!-- Project Name -->
-                  <h3 class="experience__title"></br>Activate-MicrosoftOffice</h3>
+                  <h3 class="experience__title">Activate-MicrosoftOffice</h3>
                   <!-- Project Link -->
                   <span class="experience__duration"><a href="https://github.com/tylerdotrar/Activate-MicrosoftOffice">https://github.com/tylerdotrar/Activate-MicrosoftOffice</a></span>
                   <!-- Project Description -->
@@ -795,7 +908,7 @@
 
                 <div class="experience__data bd-grid">
                   <!-- Project Name -->
-                  <h3 class="experience__title"></br>tc-taps</h3>
+                  <h3 class="experience__title">tc-taps</h3>
                   <!-- Project Link -->
                   <span class="experience__duration"><a href="https://github.com/tylerdotrar/tc-taps">https://github.com/tylerdotrar/tc-taps</a></span>
                   <!-- Project Description -->

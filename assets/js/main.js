@@ -93,23 +93,39 @@ function removeScale(){
 }
 
 /*==================== GENERATE PDF ====================*/ 
-// PDF generated area
-let areaCv = document.getElementById('area-cv')
 
 let resumeButton = document.getElementById('resume-button')
 
-// Html2pdf options
+// IGNORED : PDF generated area
+let areaCv = document.getElementById('area-cv')
+
+// IGNORED : Html2pdf options
 let opt = {
     margin:       0,         
     filename:     'myResume.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
+    image:        { type: 'jpeg', quality: 0.99 },
     html2canvas:  { scale: 4 },
-    jsPDF:        { format: 'a4', orientation: 'portrait' }
+    jsPDF:        { format: 'legal', orientation: 'portrait' }
   }
 
 // Function to call areaCv and Html2Pdf options 
 function generateResume(){
-    html2pdf(areaCv, opt)
+
+  // Document element to print
+  let areaCv2 = document.getElementById('area-cv')
+
+  // html2pdf options
+  let opt2 = {
+    margin:       0,         
+    filename:     'McCann, Tyler - Resume.pdf',
+    pagebreak:    { before: '#certifications', after: ['#experience__container'] },
+    image:        { type: 'jpeg', quality: 0.99 },
+    html2canvas:  { scale: 4, width: 815, scrollX: 0, scrollY: 0 },
+    jsPDF:        { format: 'legal', orientation: 'portrait' }
+  }
+
+  html2pdf().set(opt2).from(areaCv2).save()
+  /* html2pdf(areaCv2, opt2) */
 }
 
 // When the button is clicked, it executes the three functions

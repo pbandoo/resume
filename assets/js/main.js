@@ -120,7 +120,7 @@ function generateResume(){
     filename:     'McCann, Tyler - Resume.pdf',
     pagebreak:    { before: '#certifications', after: ['#experience__container'] },
     image:        { type: 'jpeg', quality: 0.99 },
-    html2canvas:  { scale: 4, width: 815, scrollX: 0, scrollY: 0, logging: true },
+    html2canvas:  { scale: 2, width: 815, scrollX: 0, scrollY: 0, logging: true },
     jsPDF:        { format: 'legal', orientation: 'portrait' }
   }
 

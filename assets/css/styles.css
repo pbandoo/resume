@@ -107,12 +107,21 @@ body.scale-cv {
 /* Button Original Size: 0.7rem */
 .scale-cv .btn1,
 .scale-cv .btn2 {
-  font-size: 0.59rem;
+  font-size: 0.55rem;
 }
 
 /* Current Job Title */
 .scale-cv .home__profession {
   font-size: 0.75rem;
+}
+
+
+.scale-cv .experience__title {
+  font-size: 0.9rem;
+}
+
+.scale-cv .certification__title {
+  font-size: 0.8rem;
 }
 
 /* Baby Fonts Original Size: 0.8rem */
@@ -146,9 +155,14 @@ body.scale-cv {
 
 /* Adjusting scale to nearly match what's being Printed */
 .scale-cv .bd-container {
-  max-width: 815px; /* changed from 595px */
+  max-width: 815px; /* changed from 595px, then 815px */
 }
 
+/* Trying to reduce scaling between education bullets */ 
+.scale-cv .bd-grid,
+.scale-cv .experience__container {
+  gap: 0.2rem;
+}
 
 
 /* Commented this Section and just hit the main targets above
@@ -273,7 +287,7 @@ img {
 
 /*========== CLASS CSS ==========*/
 .section {
-  padding: 1.5rem 0;
+  padding: 1.4rem 0;
 }
 
 .section-title {
@@ -303,7 +317,7 @@ img {
 
 .bd-grid {
   display: grid;
-  gap: 0.7rem; /* Changed from 1.5rem */
+  gap: 0.3rem; /* Changed from 1.5rem , then 0.7 */
 }
 
 .thick-grid {
@@ -531,6 +545,7 @@ img {
   margin-bottom: 0.9rem;
 }
 
+.certification__title,
 .education__title,
 .experience__title {
   font-size: var(--h3-font-size);
@@ -548,6 +563,8 @@ img {
   font-size: 0.8rem;
   color: var(--title-color);
 }
+
+.certification__duration,
 .experience__duration {
   font-size: 0.7rem;
 }
@@ -619,7 +636,7 @@ rgb(130, 133, 136) .education__year {
   margin-right: 0.75rem;
 }
 
-/*========== CERTIFICATES ==========*/
+/*========== CERTIFICATIONS ==========*/
 .certificate__title {
   font-size: var(--h3-font-size);
   margin-bottom: var(--mb-1);
@@ -627,12 +644,12 @@ rgb(130, 133, 136) .education__year {
 }
 /* Added this to reduce space in-between certifications */
 .certificate__data {
-  gap: 0.15rem; /* Changed from 0.5rem */
-  margin-bottom: 0.70rem; /* Reduced from 0.9rem */
+  gap: 0.1rem; /* 0.15rem --> Changed from 0.5rem */
+  margin-bottom: 0.50rem; /* 0.70rem --> Reduced from 0.9rem */
 }
 .certification__container {
+  /* gap: 0.05rem; */
   display: block;
-  /* gap: 0.1rem; /* Added */
 }
 
 /*========== Projects ==========*/

@@ -13,6 +13,7 @@ const showMenu = (toggleId, navId) =>{
 }
 showMenu('nav-toggle','nav-menu')
 
+
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav__link')
 
@@ -22,6 +23,7 @@ function linkAction(){
     navMenu.classList.remove('show-menu')
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
+
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
@@ -43,6 +45,7 @@ function scrollActive(){
 }
 window.addEventListener('scroll', scrollActive)
 
+
 /*==================== SHOW SCROLL TOP ====================*/ 
 function scrollTop(){
     const scrollTop = document.getElementById('scroll-top');
@@ -50,6 +53,7 @@ function scrollTop(){
     if(this.scrollY >= 200) scrollTop.classList.add('show-scroll'); else scrollTop.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollTop)
+
 
 /*==================== DARK LIGHT THEME ====================*/ 
 const themeButton = document.getElementById('theme-button')
@@ -64,12 +68,14 @@ const selectedIcon = localStorage.getItem('selected-icon')
 const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
 const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'bx-moon' : 'bx-sun'
 
+
 // We validate if the user previously chose a topic
 if (selectedTheme) {
   // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
   document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
   themeButton.classList[selectedIcon === 'bx-moon' ? 'add' : 'remove'](iconTheme)
 }
+
 
 // Activate / deactivate the theme manually with the button
 themeButton.addEventListener('click', () => {
@@ -87,55 +93,91 @@ function scaleCv(){
     document.body.classList.add('scale-cv')
 }
 
+
 /*==================== REMOVE THE SIZE WHEN THE CV IS DOWNLOADED ====================*/ 
 function removeScale(){
     document.body.classList.remove('scale-cv')
 }
 
+
 /*==================== GENERATE PDF ====================*/ 
 
 let resumeButton = document.getElementById('resume-button')
 
-// IGNORED : PDF generated area
-let areaCv = document.getElementById('area-cv')
-
-// IGNORED : Html2pdf options
-let opt = {
-    margin:       0,         
-    filename:     'myResume.pdf',
-    image:        { type: 'jpeg', quality: 0.99 },
-    html2canvas:  { scale: 4 },
-    jsPDF:        { format: 'legal', orientation: 'portrait' }
-  }
 
 // Function to call areaCv and Html2Pdf options 
 function generateResume(){
 
-  // Document element to print
-  let areaCv2 = document.getElementById('area-cv')
+  // Dynamically create filename 
+  function getFormattedDate(){
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    const now = new Date();
+    
+    let day = now.getDate().toString().padStart(2, '0');
+    let month = months[now.getMonth()];
+    let year = now.getFullYear();
 
-  // html2pdf options
-  let opt2 = {
-    margin:       0,         
-    filename:     'McCann, Tyler - Resume.pdf',
-    pagebreak:    { before: '#certifications', after: ['#experience__container'] },
-    image:        { type: 'jpeg', quality: 0.99 },
-    html2canvas:  { scale: 2, width: 815, scrollX: 0, scrollY: 0, logging: true },
-    jsPDF:        { format: 'legal', orientation: 'portrait' }
+    return `${day}${month}${year}`;
   }
 
-  html2pdf().set(opt2).from(areaCv2).save()
-  /* html2pdf(areaCv2, opt2) */
+  let filename = `McCann, Tyler - Resume - ${getFormattedDate()}.pdf`;
+
+      
+
+  // Document element to print limited to 2 pages 
+  let areaCv = document.getElementById('area-cv')
+  let originalHeight = areaCv.style.maxHeight;
+  areaCv.style.maxHeight = "22in";
+
+  // Tweak html2pdf for high quality PDF (~1.5MBs) that's no longer shifted right
+  let options = {
+    margin:       [0,-3,0,0], // Changed from 0 --> fixed the shift to the right         
+    filename:     filename, // 'McCann, Tyler - Resume - <current_date>.pdf',
+    pagebreak:    { before: ['#certifications','#page-break'] },
+    image:        { type: 'jpeg', quality: 0.99 },
+    html2canvas:  { scale: 2, scrollX: 0, scrollY: 0, logging: true },
+    jsPDF:        { format: 'letter', orientation: 'portrait' }
+  };
+
+  // Print to PDF, then revert the page back to it's original height
+  //html2pdf().set(options).from(areaCv).save().then(() => {
+  //  areaCv.style.maxHeight = originalHeight;
+  //});
+  
+  html2pdf()
+    .set(options)
+    .from(areaCv)
+    .toPdf()
+    .get('pdf')
+    .then((pdf) => {
+      // Determine page number text color based on the current theme
+      let theme = getCurrentTheme();
+      let textColor = theme === 'dark' ? [191, 191, 191] : [64, 58, 58]; // #bfbfbf for dark, #403a3a for light
+      //let textColor = theme === 'dark' ? [242, 242, 242] : [11, 10, 10]; // #f2f2f2 for dark, #0b0a0a for light
+      
+      // Add page numbers to bottom right of printed pages
+      let totalPages = pdf.internal.getNumberOfPages();
+
+      for (let i = 1; i <= totalPages; i++) {
+        pdf.setPage(i);
+        pdf.setFontSize(9);
+        pdf.setTextColor(...textColor);
+        pdf.text(`${i}`, 207, 271, {align: 'right'}); // Position: bottom right
+      }
+    })
+    .save()
+    .then(() => {
+      areaCv.style.maxHeight = originalHeight; // Undo 2 page limit
+    });
+
 }
+
 
 // When the button is clicked, it executes the three functions
 resumeButton.addEventListener('click', () =>{
-    // 1. The class .scale-cv is added to the body, where it reduces the size of the elements
-    scaleCv()
+    
+  scaleCv()                     // 1. The class .scale-cv is added to the body, where it reduces the size of the elements
+  generateResume()              // 2. The PDF is generated
+  setTimeout(removeScale, 5000) // 3. The .scale-cv class is removed from the body after 5 seconds to return to normal size.
 
-    // 2. The PDF is generated
-    generateResume()
-
-    // 3. The .scale-cv class is removed from the body after 5 seconds to return to normal size.
-    setTimeout(removeScale, 5000)
-})
+});

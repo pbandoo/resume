@@ -98,9 +98,9 @@ body.scale-cv {
   --h1-font-size: 1.15rem; /* Changed from 0.938rem */
   --h2-font-size: 1.05rem; /* Changed from 0.938rem */
   --h3-font-size: 0.855rem; /* Changed from 0.875rem */
-  --normal-font-size: 0.8rem; /* Changed from 0.813rem */
-  --small-font-size: 0.75rem;
-  --smaller-font-size: 0.688rem;
+  --normal-font-size: 0.76rem; /* Changed from 0.813rem, then 0.8rem 14.4px to 12.8px */
+  --small-font-size: 0.75rem; /* Changed from 0.75rem */
+  --smaller-font-size: 0.688rem; /* Changed from 0.688rem */
 }
 
 /*========== Classes modified to reduce size and print on A4 sheet ==========*/
@@ -161,7 +161,7 @@ body.scale-cv {
 /* Trying to reduce scaling between education bullets */ 
 .scale-cv .bd-grid,
 .scale-cv .experience__container {
-  gap: 0.2rem;
+  gap: 0.1rem; /* Changed from 0.2rem; */
 }
 
 
@@ -317,7 +317,7 @@ img {
 
 .bd-grid {
   display: grid;
-  gap: 0.3rem; /* Changed from 1.5rem , then 0.7 */
+  gap: 0.1rem; /* Changed from 1.5rem , then 0.7 */
 }
 
 .thick-grid {
@@ -447,7 +447,7 @@ img {
   gap: 0.75rem;
 }
 
-.home__information {
+.home__info {
   display: flex;
   align-items: center;
   font-size: var(--small-font-size);
